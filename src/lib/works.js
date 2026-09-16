@@ -6,7 +6,7 @@ export const works = [
     category: "AI/ML",
     featured: true,
     year: "2025",
-    image: "/images/works/rag-chat.png",
+    image: "/images/r.png",                          // ✅ FIXED
     tags: ["Python", "OpenAI", "LangChain", "Vector DB", "FastAPI"],
     link: "#",
     github: "#",
@@ -27,7 +27,7 @@ export const works = [
     category: "AI/ML",
     featured: false,
     year: "2025",
-    image: "/images/works/agentic.png",
+    image: "/images/a.png",                      // ✅ FIXED
     tags: ["Python", "OpenAI", "Agents", "Tool Use"],
     link: "#",
     github: "#",
@@ -47,7 +47,7 @@ export const works = [
     category: "Full-Stack",
     featured: false,
     year: "2024",
-    image: "/images/works/ecommerce.png",
+    image: "/images/e.png",                    // ✅ FIXED
     tags: ["React", "Node.js", "MongoDB", "Express"],
     link: "#",
     github: "#",
@@ -68,7 +68,7 @@ export const works = [
     category: "Full-Stack",
     featured: false,
     year: "2024",
-    image: "/images/works/taskmanager.png",
+    image: "/images/t.png",                  // ✅ FIXED
     tags: ["Next.js", "Socket.io", "MongoDB"],
     link: "#",
     github: "#",
@@ -88,7 +88,7 @@ export const works = [
     category: "Full-Stack",
     featured: false,
     year: "2024",
-    image: "/images/works/analytics.png",
+    image: "/images/analytics.png",                    // ✅ FIXED
     tags: ["React", "Express", "Charts"],
     link: "#",
     github: "#",

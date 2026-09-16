@@ -1,9 +1,9 @@
 "use client";
-
+import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Sparkles, Star } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Star } from "lucide-react";
 import { works, categories } from "@/lib/works";
 import { cn } from "@/lib/utils";
 
@@ -209,39 +209,22 @@ function FeaturedCard({ work }) {
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Image side */}
           <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[420px] overflow-hidden bg-gradient-to-br from-stone-100 to-stone-50">
-            {/* Placeholder visual */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative">
-                <motion.div
-                  className="h-40 w-40 rounded-full opacity-40 blur-3xl"
-                  style={{
-                    background:
-                      "radial-gradient(circle, #7C3AED 0%, transparent 70%)",
-                  }}
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.4, 0.6, 0.4],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Sparkles size={48} className="text-accent/60" />
-                </div>
-              </div>
-            </div>
+            <Image
+              src={work.image}
+              alt={work.title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
 
             {/* Featured badge */}
-            <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-stone-900 px-3 py-1.5 text-xs font-medium text-white">
+            <div className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-stone-900 px-3 py-1.5 text-xs font-medium text-white">
               <Star size={12} className="fill-accent text-accent" />
               Featured
             </div>
 
-            {/* Image zoom on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            {/* Hover gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </div>
 
           {/* Content side */}
@@ -305,37 +288,18 @@ function ProjectCard({ work }) {
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
         className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-soft"
       >
-        {/* Image / Visual */}
+        {/* Image */}
         <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-stone-100 to-stone-50">
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center"
-            whileHover={{ scale: 1.08 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="relative">
-              <motion.div
-                className="h-32 w-32 rounded-full opacity-30 blur-2xl"
-                style={{
-                  background:
-                    "radial-gradient(circle, #7C3AED 0%, transparent 70%)",
-                }}
-                animate={{
-                  scale: [1, 1.15, 1],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Sparkles size={32} className="text-accent/50" />
-              </div>
-            </div>
-          </motion.div>
+          <Image
+            src={work.image}
+            alt={work.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+          />
 
           {/* Year badge */}
-          <div className="absolute top-3 right-3 rounded-full bg-white/80 backdrop-blur-md px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-stone-600">
+          <div className="absolute top-3 right-3 z-10 rounded-full bg-white/80 backdrop-blur-md px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest text-stone-600">
             {work.year}
           </div>
         </div>
