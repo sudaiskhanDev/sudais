@@ -182,6 +182,7 @@ export default function Work() {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
+            data-cursor="pointer"
             className="group inline-flex items-center gap-3 rounded-full border border-stone-300 bg-white px-6 py-3 text-sm font-medium text-stone-800 transition-all hover:border-stone-400 hover:bg-stone-50"
           >
             <span>View all projects on GitHub</span>
@@ -200,7 +201,12 @@ export default function Work() {
    ============================================================ */
 function FeaturedCard({ work }) {
   return (
-    <Link href={`/work/${work.slug}`} className="group block">
+    <Link 
+      href={`/work/${work.slug}`} 
+      className="group block" 
+      data-cursor="pointer" 
+      data-cursor-text="View"
+    >
       <motion.div
         whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
@@ -282,7 +288,12 @@ function FeaturedCard({ work }) {
    ============================================================ */
 function ProjectCard({ work }) {
   return (
-    <Link href={`/work/${work.slug}`} className="group block h-full">
+    <Link 
+      href={`/work/${work.slug}`} 
+      className="group block h-full" 
+      data-cursor="pointer" 
+      data-cursor-text="View"
+    >
       <motion.div
         whileHover={{ y: -6 }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
